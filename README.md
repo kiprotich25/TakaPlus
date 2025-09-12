@@ -1,7 +1,25 @@
+# ♻️ TakaPlus
+
+A web platform combining a **SmartBin Finder** and **Trash2Cash** marketplace.  
+Residents can locate nearby smart bins and list recyclables for pickup, promoting a cleaner and circular economy.
+
+---
+
+## 🚀 Features
+- **Interactive Map** – Locate smart bins in your area.
+- **Recyclables Marketplace** – Post and manage recyclable listings for pickup.
+- **User Dashboard** – Track your activity and impact.
+- **Authentication** – Secure login and registration.
+
+---
+
+## 🗂️ Project Structure
+
+```bash
 TakaPlus/
 ├── README.md                # Project overview & setup instructions
 ├── package.json             # Frontend dependencies
-├── .env                     # API keys, DB URLs (never commit actual keys)
+├── .env                     # API keys, DB URLs (do NOT commit actual keys)
 ├── public/                  # Static assets (favicon, logos)
 │   └── index.html
 ├── src/                     # All frontend code
@@ -31,7 +49,7 @@ TakaPlus/
 │   ├── styles/              # Tailwind
 │   └── utils/               # Helper functions (geolocation, impact calc)
 │
-├── server/                  # Backend 
+├── server/                  # Backend
 │   ├── package.json
 │   ├── server.js            # Express app entry point
 │   ├── config/              # DB, env config
@@ -44,7 +62,7 @@ TakaPlus/
 │   ├── models/              # DB models (User, Listing, Bin)
 │   └── middleware/          # Auth, validation
 │
-└── docs/                    # Extra docs 
-    ├── project-summary.md
-    ├── wireframes/          # Images of mockups
-    └── architecture-diagram.png
+├── docs/                    # Extra docs
+├── project-summary.md
+├── wireframes/              # Images of mockups
+└── architecture-diagram.png
