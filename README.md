@@ -45,32 +45,30 @@
 └── server/                     # backend (Node + Express + Mongoose)
     ├── package.json
     ├── .env.example            # server-specific env vars
-    ├── src/
-    │   ├── server.js           # starts the app (load env, connect DB, listen)
-    │   ├── app.js              # express app, middleware, route mount
-    │   ├── config/
-    │   │   └── db.js          # mongoose connection helper
-    │   ├── routes/
-    │   │   ├── auth.js        # register/login
-    │   │   ├── listings.js
-    │   │   └── bids.js
-    │   ├── controllers/
-    │   │   ├── authController.js
-    │   │   ├── listingsController.js
-    │   │   └── bidsController.js
-    │   ├── models/
-    │   │   ├── User.js         # Mongoose schema
-    │   │   ├── Listing.js
-    │   │   └── Bid.js
-    │   ├── middleware/
-    │   │   ├── auth.js         # JWT auth middleware
-    │   │   └── errorHandler.js
+    ├── server.js         
+    ├── config/
+    │   └── db.js          # mongoose connection helper
+    ├── routes/
+    │   ├── auth.js        # register/login
+    │   ├── listings.js
+    │   └── bids.js
+    ├── controllers/
+    │   ├── authController.js
+    │   ├── listingsController.js
+    │   └── bidsController.js
+    ├── models/
+    │   ├── User.js         # Mongoose schema
+    │   ├── Listing.js
+    │   └── Bid.js
+    ├── middleware/
+    │   ├── auth.js         # JWT auth middleware
+    │   └── errorHandler.js
     │   ├── services/
-    │   │   ├── paymentService.js  # optional (M-Pesa / Stripe) 
-    │   │   └── notificationService.js
-    │   ├── utils/
-    │   │   └── impact.js
-    │   └── seed/               # optional scripts to seed demo data
+    │   ├── paymentService.js  # optional (M-Pesa / Stripe) 
+    │   └── notificationService.js
+    ├── utils/
+    │   └── impact.js
+    └── seed/               # optional scripts to seed demo data
     │       └── seedListings.js
     ├── tests/                  # optional: jest/mocha tests
     │   └── listings.test.js
