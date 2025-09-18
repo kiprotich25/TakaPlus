@@ -66,9 +66,9 @@
     ├── middleware/
     │   ├── auth.js             # JWT auth middleware
     │   └── errorHandler.js
-    │   ├── services/
-    │   │   ├── paymentService.js      # optional (M-Pesa / Stripe)
-    │   │   └── notificationService.js
+    ├── services/
+    │   ├── paymentService.js      # optional (M-Pesa / Stripe)
+    │   └── notificationService.js
     ├── utils/
     │   └── impact.js
     ├── seed/                   # optional scripts to seed demo data
