@@ -38,7 +38,7 @@ function BinsMapComponent() {
 
   useEffect(() => {
     loadBins()
-    getUserLocation()
+    // getUserLocation()
   })
 
   const loadBins = async () => {
