@@ -1,14 +1,14 @@
-const mongoose = require('mongoose'); // (1)
+const mongoose = require('mongoose');
 
-module.exports = async function connectDB(uri) { // (2)
-  if (!uri) throw new Error('MONGODB_URI not set'); // (3)
+async function connectDB(uri) {
+  if (!uri) throw new Error('MONGODB_URI not set');
   try {
-    await mongoose.connect(uri, { // (4)
-      
-    });
-    console.log('MongoDB connected successfully'); // (5)
+    await mongoose.connect(uri, {});
+    console.log('MongoDB connected successfully');
   } catch (err) {
-    console.error('MongoDB connection error', err); // (6)
-    throw err; // (7)
+    console.error('MongoDB connection error', err);
+    throw err;
   }
-};
+}
+
+module.exports = connectDB;
