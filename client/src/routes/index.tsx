@@ -67,14 +67,14 @@ function RouteComponent() {
             >
               Find Bins
             </button> */}
-            {user.role === 'admin' && (
+            {/* {user.role === 'admin' && (
               <button 
                 className="btn btn-warning"
                 onClick={() => navigate({ to: '/admin-bins' })}
               >
                 Manage Bins
               </button>
-            )}
+            )} */}
             <button 
               className="btn btn-outline"
               onClick={logout}
