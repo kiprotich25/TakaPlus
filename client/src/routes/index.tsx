@@ -61,12 +61,12 @@ function RouteComponent() {
             >
               Add Listing
             </button>
-            <button 
+            {/* <button 
               className="btn btn-accent"
               onClick={() => navigate({ to: '/bins-map' })}
             >
               Find Bins
-            </button>
+            </button> */}
             {user.role === 'admin' && (
               <button 
                 className="btn btn-warning"

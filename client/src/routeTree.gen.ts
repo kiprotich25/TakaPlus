@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ListingsRouteImport } from './routes/listings'
-import { Route as AdminBinsRouteImport } from './routes/admin-bins'
 import { Route as AddListingRouteImport } from './routes/add-listing'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -31,11 +30,6 @@ const ListingsRoute = ListingsRouteImport.update({
   path: '/listings',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminBinsRoute = AdminBinsRouteImport.update({
-  id: '/admin-bins',
-  path: '/admin-bins',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AddListingRoute = AddListingRouteImport.update({
   id: '/add-listing',
   path: '/add-listing',
@@ -50,7 +44,6 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/add-listing': typeof AddListingRoute
-  '/admin-bins': typeof AdminBinsRoute
   '/listings': typeof ListingsRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
@@ -58,7 +51,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/add-listing': typeof AddListingRoute
-  '/admin-bins': typeof AdminBinsRoute
   '/listings': typeof ListingsRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
@@ -67,42 +59,21 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/add-listing': typeof AddListingRoute
-  '/admin-bins': typeof AdminBinsRoute
   '/listings': typeof ListingsRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/add-listing'
-    | '/admin-bins'
-    | '/listings'
-    | '/login'
-    | '/register'
+  fullPaths: '/' | '/add-listing' | '/listings' | '/login' | '/register'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/add-listing'
-    | '/admin-bins'
-    | '/listings'
-    | '/login'
-    | '/register'
-  id:
-    | '__root__'
-    | '/'
-    | '/add-listing'
-    | '/admin-bins'
-    | '/listings'
-    | '/login'
-    | '/register'
+  to: '/' | '/add-listing' | '/listings' | '/login' | '/register'
+  id: '__root__' | '/' | '/add-listing' | '/listings' | '/login' | '/register'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AddListingRoute: typeof AddListingRoute
-  AdminBinsRoute: typeof AdminBinsRoute
   ListingsRoute: typeof ListingsRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
@@ -131,13 +102,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ListingsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin-bins': {
-      id: '/admin-bins'
-      path: '/admin-bins'
-      fullPath: '/admin-bins'
-      preLoaderRoute: typeof AdminBinsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/add-listing': {
       id: '/add-listing'
       path: '/add-listing'
@@ -158,7 +122,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AddListingRoute: AddListingRoute,
-  AdminBinsRoute: AdminBinsRoute,
   ListingsRoute: ListingsRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,

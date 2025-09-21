@@ -36,7 +36,7 @@ function ListingsPage() {
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
         <h1 className="text-3xl font-bold">Available Listings</h1>
         <div className="flex gap-2">
-          <button
+          {/* <button
             className="btn btn-accent"
             onClick={() => navigate({ to: '/bins-map' })}
           >
@@ -45,7 +45,7 @@ function ListingsPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             Find Bins
-          </button>
+          </button> */}
           {user && (
             <button
               className="btn btn-primary"
