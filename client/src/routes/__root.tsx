@@ -1,5 +1,6 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router'
 import Footer from '../components/footer'
+import Header from '../components/header'
 import { AuthProvider } from '../utils/auth'
 
 export const Route = createRootRoute({
@@ -9,12 +10,12 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-base-100">
-        <main className="container mx-auto px-4 py-6">
+      <div className="min-h-screen bg-base-100 flex flex-col">
+        <Header />
+        <main className="flex-1 container mx-auto px-4 py-6">
           <Outlet />
         </main>
         <Footer/>
-        
       </div>
     </AuthProvider>
   )
