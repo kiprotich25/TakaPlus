@@ -15,6 +15,7 @@
     "@tanstack/react-router": "^1.131.48",
     "@tanstack/react-router-devtools": "^1.131.48",
     "daisyui": "^5.1.13",
+    "leaflet": "^1.9.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tailwindcss": "^4.1.13"
@@ -23,6 +24,7 @@
     "@eslint/js": "^9.35.0",
     "@tanstack/eslint-plugin-query": "^5.89.0",
     "@tanstack/router-plugin": "^1.131.48",
+    "@types/leaflet": "^1.9.20",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.2",
