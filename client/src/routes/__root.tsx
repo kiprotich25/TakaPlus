@@ -1,25 +1,22 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanstackDevtools } from '@tanstack/react-devtools'
-
-import Header from '../components/Header'
+import Footer from '../components/footer'
+import Header from '../components/header'
+import { AuthProvider } from '../utils/auth'
 
 export const Route = createRootRoute({
-  component: () => (
-    <>
-      <Header />
-      <Outlet />
-      <TanstackDevtools
-        config={{
-          position: 'bottom-left',
-        }}
-        plugins={[
-          {
-            name: 'Tanstack Router',
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-        ]}
-      />
-    </>
-  ),
+  component: RootComponent,
 })
+
+function RootComponent() {
+  return (
+    <AuthProvider>
+      <div className="min-h-screen bg-base-100 flex flex-col">
+        <Header />
+        <main className="flex-1 container mx-auto px-4 py-6">
+          <Outlet />
+        </main>
+        <Footer/>
+      </div>
+    </AuthProvider>
+  )
+}

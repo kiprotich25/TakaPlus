@@ -1,29 +1,36 @@
-require('dotenv').config(); // (1)
-const express = require('express'); // (2)
-const cors = require('cors'); // (3)
-const morgan = require('morgan'); // (4)
-const connectDB = require('./config/db'); // (5)
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+const authRoutes = require('./routes/authRoutes');
+const listingRoutes = require('./routes/listingRoutes');
+const bidRoutes = require('./routes/bidRoutes');
+const binRoutes = require('./routes/binRoutes');
 
-const app = express(); // (6)
+dotenv.config();
+
+const app = express(); 
 
 // connect to MongoDB
-connectDB(process.env.MONGODB_URI); // (7)
+connectDB(process.env.MONGODB_URI); 
 
 // middlewares
-app.use(morgan('dev')); // (8) log HTTP traffic in dev
-app.use(cors({ origin: process.env.CLIENT_URL })); // (9) allow client origin
-app.use(express.json()); // (10) parse JSON body payloads
+app.use(morgan('dev')); // log HTTP traffic in dev
+app.use(cors({ origin: process.env.CLIENT_URL })); // allow client origin
+app.use(express.json()); //  parse JSON body payloads
 
 //routes
-app.use('/api/auth', require('./routes/authRoutes')); // (11)
-app.use('/api/listings', require('./routes/listingRoutes')); // (12)
-app.use('/api/bids', require('./routes/bidRoutes')); // (13)
+app.use('/api/auth', authRoutes); 
+app.use('/api/listings', listingRoutes); 
+app.use('/api/bids', bidRoutes); 
+app.use('/api/bins', binRoutes);
 // add other route mounts (users, dashboard) as needed
 
-app.get('/api/ping', (req, res) => { // (14)
+app.get('/api/ping', (req, res) => { 
   res.status(200).json({ message: 'API is healthy ✅' });
 });
 
-const PORT = process.env.PORT || 5000; // (15)
-app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`)); // (16)
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
 
