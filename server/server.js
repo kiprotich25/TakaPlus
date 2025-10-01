@@ -17,7 +17,10 @@ connectDB(process.env.MONGODB_URI);
 
 // middlewares
 app.use(morgan('dev')); // log HTTP traffic in dev
-app.use(cors({ origin: process.env.CLIENT_URL })); // allow client origin
+app.use(cors());
+// app.use(cors({ origin: process.env.CLIENT_URL || "https://localhost",
+//    methods: ["GET", "POST", "PUT", "DELETE"],
+//  })); // allow client origin
 app.use(express.json()); //  parse JSON body payloads
 
 //routes
