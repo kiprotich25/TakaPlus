@@ -25,7 +25,7 @@ function RouteComponent() {
               <h1 className="text-6xl font-bold bg-gradient-to-r from-green-700 to-emerald-500 bg-clip-text text-transparent mb-6">
                 Cleaner Cities with TakaPlus
               </h1>
-              <p className="text-xl text-base-content/80 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xl text-base-content/80 max-w-2xl mx-auto leading-relaxed text-gray-900">
                 Turn your household and business waste into value. 
                 Sort, recycle, and trade materials — while helping your community fight pollution.
               </p>
