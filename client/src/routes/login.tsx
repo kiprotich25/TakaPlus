@@ -1,3 +1,4 @@
+// client/src/routes/login.tsx
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useState } from 'react'
 import { useAuth } from '../utils/auth'

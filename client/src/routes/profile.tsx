@@ -1,3 +1,4 @@
+// client/src/routes/profile.tsx
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useAuth } from '../utils/auth'
 
@@ -34,9 +35,9 @@ function RouteComponent() {
       <section className="hero bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 rounded-3xl">
         <div className="hero-content text-center">
           <div className="max-w-2xl">
-            <div className="avatar placeholder mb-6">
-              <div className="bg-primary text-primary-content rounded-full w-24">
-                <span className="text-3xl font-bold">{user.name.charAt(0).toUpperCase()}</span>
+            <div className="avatar placeholder mb-4">
+              <div className="bg-primary my-auto text-primary-content rounded-full w-24 flex items-center my-auto justify-center">
+                <span className=" fletter text-3xl relative w-full font-bold text-center top-[50%] mt-6 ">{user.name.charAt(0).toUpperCase()}</span>
               </div>
             </div>
             <h1 className="text-5xl font-bold mb-4">Welcome back, {user.name}!</h1>
