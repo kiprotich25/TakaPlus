@@ -1,3 +1,4 @@
+//client/src/routes/description.tsx
 import { createFileRoute, useSearch } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { ListingsAPI, BidsAPI } from '../utils/api';
@@ -49,6 +50,8 @@ function DescriptionPage() {
       });
   }, [search.id]);
 
+  console.log('Listing data:', listing);
+
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-20">
@@ -99,11 +102,11 @@ function DescriptionPage() {
             <p className="text-sm text-base-content/60 mt-2">Listed by: {listing.user.name}</p>
           )}
           {/* Bid Now Button (only if not owner) */}
-          {user && listing.user && user.id !== listing.user._id && (
+          {/* {user && listing.user && user.id !== listing.user._id && ( */}
             <button className="btn btn-primary mt-4" onClick={() => setShowBidModal(true)}>
               Bid Now
             </button>
-          )}
+        
         </div>
       </div>
       {/* Bid Modal */}
@@ -120,7 +123,7 @@ function DescriptionPage() {
                 setBidError('');
                 setBidLoading(true);
                 try {
-                  await BidsAPI.place({ listingId: listing._id, amount: parseFloat(bidAmount), message: bidMessage }, token);
+                  await BidsAPI.place({ listingId: listing._id, amount: parseFloat(bidAmount), message: bidMessage }, token!);
                   setBidSuccess(true);
                 } catch (err: any) {
                   setBidError(err.message || 'Failed to place bid');

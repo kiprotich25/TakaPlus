@@ -212,7 +212,7 @@ function ListingsPage() {
                   <img 
                     src={listing.photoUrl} 
                     alt={listing.title} 
-                    className="h-48 w-full object-cover"
+                    className="h-48 w-full object-cover "
                     onError={(e) => {
                       e.currentTarget.style.display = 'none'
                       e.currentTarget.nextElementSibling?.classList.remove('hidden')
