@@ -104,7 +104,7 @@ function RegisterComponent() {
               />
             </div>
 
-            <div className="form-control">
+            <div className="form-control hidden">
               <label className="label" htmlFor="role">
                 <span className="label-text">Role</span>
               </label>

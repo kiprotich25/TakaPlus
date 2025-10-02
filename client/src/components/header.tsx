@@ -44,6 +44,8 @@ function Header() {
           {user && (
             <li><Link to="/add-listing" className="font-medium hover:text-primary">Add Listing</Link></li>
           )}
+          
+          <li><Link to="/aiSummary" className="font-medium hover:text-primary">AI Insight</Link></li>
         </ul>
       </div>
       

@@ -8,6 +8,7 @@ export const Route = createFileRoute('/add-listing')({
 })
 
 function AddListingComponent() {
+  
   const [formData, setFormData] = useState({
     title: '',
     material: '',

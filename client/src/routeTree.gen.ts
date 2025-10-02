@@ -13,6 +13,7 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ListingsRouteImport } from './routes/listings'
+import { Route as AiSummaryRouteImport } from './routes/aiSummary'
 import { Route as AddListingRouteImport } from './routes/add-listing'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ListingsIndexRouteImport } from './routes/listings/index'
@@ -36,6 +37,11 @@ const LoginRoute = LoginRouteImport.update({
 const ListingsRoute = ListingsRouteImport.update({
   id: '/listings',
   path: '/listings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiSummaryRoute = AiSummaryRouteImport.update({
+  id: '/aiSummary',
+  path: '/aiSummary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AddListingRoute = AddListingRouteImport.update({
@@ -62,6 +68,7 @@ const ListingsListingIdRoute = ListingsListingIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/add-listing': typeof AddListingRoute
+  '/aiSummary': typeof AiSummaryRoute
   '/listings': typeof ListingsRouteWithChildren
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/add-listing': typeof AddListingRoute
+  '/aiSummary': typeof AiSummaryRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
   '/register': typeof RegisterRoute
@@ -82,6 +90,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/add-listing': typeof AddListingRoute
+  '/aiSummary': typeof AiSummaryRoute
   '/listings': typeof ListingsRouteWithChildren
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/add-listing'
+    | '/aiSummary'
     | '/listings'
     | '/login'
     | '/profile'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/add-listing'
+    | '/aiSummary'
     | '/login'
     | '/profile'
     | '/register'
@@ -113,6 +124,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/add-listing'
+    | '/aiSummary'
     | '/listings'
     | '/login'
     | '/profile'
@@ -124,6 +136,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AddListingRoute: typeof AddListingRoute
+  AiSummaryRoute: typeof AiSummaryRoute
   ListingsRoute: typeof ListingsRouteWithChildren
   LoginRoute: typeof LoginRoute
   ProfileRoute: typeof ProfileRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       path: '/listings'
       fullPath: '/listings'
       preLoaderRoute: typeof ListingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aiSummary': {
+      id: '/aiSummary'
+      path: '/aiSummary'
+      fullPath: '/aiSummary'
+      preLoaderRoute: typeof AiSummaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/add-listing': {
@@ -208,6 +228,7 @@ const ListingsRouteWithChildren = ListingsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AddListingRoute: AddListingRoute,
+  AiSummaryRoute: AiSummaryRoute,
   ListingsRoute: ListingsRouteWithChildren,
   LoginRoute: LoginRoute,
   ProfileRoute: ProfileRoute,

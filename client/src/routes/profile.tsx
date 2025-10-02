@@ -36,7 +36,7 @@ function RouteComponent() {
         <div className="hero-content text-center">
           <div className="max-w-2xl">
             <div className="avatar placeholder mb-4">
-              <div className="bg-primary my-auto text-primary-content rounded-full w-24 flex items-center my-auto justify-center">
+              <div className="bg-primary my-auto text-primary-content rounded-full w-24 flex items-center justify-center">
                 <span className=" fletter text-3xl relative w-full font-bold text-center top-[50%] mt-6 ">{user.name.charAt(0).toUpperCase()}</span>
               </div>
             </div>

@@ -1,5 +1,5 @@
 
-// client/src/routes/listings.$listingId.tsx
+// client/src/routes/listings/$listingId.tsx
 import { createFileRoute, useNavigate, useParams } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { ListingsAPI } from '../../utils/api'

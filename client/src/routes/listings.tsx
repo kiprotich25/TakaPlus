@@ -5,6 +5,7 @@ import { ListingsAPI } from '../utils/api'
 import { useAuth } from '../utils/auth'
 
 export const Route = createFileRoute('/listings')({
+
   component: ListingsPage,
 })
 
@@ -26,6 +27,13 @@ function ListingsPage() {
   const [sortBy, setSortBy] = useState('newest')
   const { user } = useAuth()
   const navigate = useNavigate()
+
+  const { token } = useAuth()
+  // Redirect if not authenticated
+  if (!user || !token) {
+    navigate({ to: '/login' })
+    return null
+  }
 
   useEffect(() => {
     ListingsAPI.list()
@@ -260,7 +268,8 @@ function ListingsPage() {
                 <div className="card-actions justify-end">
                   <button 
                     className="btn btn-primary btn-sm"
-                    onClick={() => navigate({ to: `/listings/${listing._id}` })}
+                    // onClick={() => navigate({ to: '/login'})}
+                     onClick={() => navigate({ to: `/listings/${listing._id}` })}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />

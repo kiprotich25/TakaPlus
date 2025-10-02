@@ -1,11 +1,13 @@
 // client/src/routes/index.tsx
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { useAuth } from '../utils/auth'
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
+  const { user } = useAuth()
   const navigate = useNavigate()
 
   return (
@@ -29,7 +31,7 @@ function RouteComponent() {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            { !user && <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <button 
                 className="btn btn-success btn-lg px-8"
                 onClick={() => navigate({ to: '/register' })}
@@ -42,7 +44,7 @@ function RouteComponent() {
               >
                 🔑 Login
               </button>
-            </div>
+            </div>}
 
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
