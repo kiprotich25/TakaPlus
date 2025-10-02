@@ -5,7 +5,7 @@ function Footer() {
     <footer className="footer footer-center p-4 text-base-content">
           <aside>
             <p>
-              <Link to="/" className="link link-hover">TakaPlus</Link> · Built with Tailwind & DaisyUI
+              <Link to="/" className="link link-hover">&copy; {new Date().getFullYear()} TakaPlus</Link>
             </p>
           </aside>
         </footer>
