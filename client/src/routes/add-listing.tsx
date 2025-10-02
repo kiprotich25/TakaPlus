@@ -14,6 +14,7 @@ function AddListingComponent() {
     material: '',
     quantity: '',
     unit: 'kg',
+    description: '',
     lat: '',
     lng: '',
     photoUrl: ''
@@ -48,6 +49,7 @@ function AddListingComponent() {
         material: formData.material,
         quantity: parseFloat(formData.quantity),
         unit: formData.unit,
+        description: formData.description,
         ...(formData.lat && formData.lng && {
           lat: parseFloat(formData.lat),
           lng: parseFloat(formData.lng)
@@ -124,6 +126,23 @@ function AddListingComponent() {
                   <option key={material} value={material}>{material}</option>
                 ))}
               </select>
+            </div>
+
+            {/* Description */}
+            <div className="form-control">
+              <label className="label" htmlFor="description">
+                <span className="label-text font-semibold">Description</span>
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Describe your listing (optional)"
+                className="textarea textarea-bordered w-full"
+                value={formData.description}
+                onChange={handleChange}
+                rows={3}
+                disabled={isLoading}
+              />
             </div>
 
             {/* Quantity and Unit */}

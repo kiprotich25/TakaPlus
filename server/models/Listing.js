@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 
 const ListingSchema = new mongoose.Schema({
   title: { type: String, required: true },     
-  material: { type: String, required: true },  
+  material: { type: String, required: true }, 
   quantity: { type: Number, required: true },  
   unit: { type: String, default: 'kg' },       
+  description: { type: String, default: '' },  // <-- Added description field
   lat: { type: Number },                       
   lng: { type: Number },                       
   photoUrl: { type: String },                  

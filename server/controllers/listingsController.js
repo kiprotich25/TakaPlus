@@ -5,11 +5,11 @@ const { estimateCO2 } = require('../utils/impact'); // (3)
 // create
 exports.createListing = async (req, res, next) => {
   try {
-    const { title, material, quantity, unit, lat, lng, photoUrl } = req.body; // (4)
+    const { title, material, quantity, unit, lat, lng,description, photoUrl } = req.body; // (4)
     if (!title || !material || quantity == null) return res.status(400).json({ error: 'Missing required fields' }); // (5)
     const co2Saved = estimateCO2(material, Number(quantity), unit); // (6)
     const owner = req.user._id; // (7) req.user set by auth middleware
-    const listing = await Listing.create({ title, material, quantity: Number(quantity), unit, lat, lng, photoUrl, owner, co2Saved }); // (8)
+    const listing = await Listing.create({ title, material, quantity: Number(quantity), unit, lat, lng, photoUrl, owner, co2Saved, description }); // (8)
     await listing.populate('owner', 'name email'); // (9)
     res.status(201).json(listing); // (10)
   } catch (err) {
