@@ -1,3 +1,4 @@
+
 // client/src/routes/listings.tsx
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
@@ -85,11 +86,11 @@ function ListingsPage() {
   return (
     <div className="space-y-8">
       {/* Header Section */}
-      <div className="hero bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl py-12">
+      <div className="hero bg-gradient-to-br from-green-50 via-emerald-100 to-green-200 rounded-3xl py-12">
         <div className="hero-content text-center">
           <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold mb-4">Sustainable Materials Marketplace</h1>
-            <p className="text-lg text-base-content/80 mb-6">
+            <h1 className="text-4xl text-green-700 font-bold mb-4">Sustainable Materials Marketplace</h1>
+            <p className="text-lg text-black mb-6">
               Discover and trade sustainable materials to build a circular economy
             </p>
             {user && (

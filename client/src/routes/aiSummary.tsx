@@ -1,3 +1,5 @@
+
+// client/src/routes/aiSummary.tsx
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/aiSummary')({

@@ -1,3 +1,4 @@
+
 // client/src/routes/register.tsx
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useState } from 'react'

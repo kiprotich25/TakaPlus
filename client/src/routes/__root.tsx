@@ -1,3 +1,5 @@
+
+// client/src/routes/__root.tsx
 import { Outlet, createRootRoute } from '@tanstack/react-router'
 import Footer from '../components/footer'
 import Header from '../components/header'
@@ -10,7 +12,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-base-100 flex flex-col">
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-100 to-green-200 flex flex-col">
         <Header />
         <main className="flex-1 container mx-auto px-4 py-6">
           <Outlet />
