@@ -127,7 +127,7 @@ function RouteComponent() {
               Be part of the solution — recycle smarter, earn more, and keep your neighborhood clean
             </p>
             <button 
-              className="btn btn-lg btn-ghost text-green-700"
+              className="btn btn-lg btn-ghost text-green-700 hover:text-amber-50"
               onClick={() => navigate({ to: '/listings' })}
             >
               🚛 Start Trading Today

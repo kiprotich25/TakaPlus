@@ -109,7 +109,7 @@ function ListingsPage() {
       </div>
 
       {/* Filters and Search */}
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-gradient-to-br from-green-50 via-emerald-100 to-green-200 rounded-3xl shadow-xl">
         <div className="card-body">
           <div className="flex flex-col lg:flex-row gap-4">
             {/* Search */}
