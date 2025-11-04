@@ -78,7 +78,7 @@ function AddListingComponent() {
   return (
   <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-100 to-green-200 py-12 px-4 flex justify-center items-start">
     <div className="w-full max-w-2xl">
-      <div className="card bg-white/70 backdrop-blur-xl shadow-2xl rounded-3xl border border-green-100">
+      <div className="card bg-white/50 backdrop-blur-xl shadow-2xl rounded-3xl border border-green-100">
         <div className="card-body p-8">
           {/* Header */}
           <div className="text-center mb-8">
@@ -187,7 +187,7 @@ function AddListingComponent() {
             </div>
 
             {/* Location */}
-            <div>
+            {/* <div>
               <label className="block font-semibold text-gray-700 mb-1">Location (Optional)</label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
@@ -211,7 +211,7 @@ function AddListingComponent() {
                   disabled={isLoading}
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* Photo URL */}
             <div>
