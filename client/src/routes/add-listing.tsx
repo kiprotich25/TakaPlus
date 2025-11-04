@@ -76,11 +76,19 @@ function AddListingComponent() {
   const units = ['kg', 'lbs', 'tons', 'pieces', 'liters', 'gallons']
 
   return (
-    <div className="max-w-2xl mx-auto mt-8">
-      <div className="card bg-base-200 shadow-xl">
-        <div className="card-body">
-          <h2 className="card-title text-2xl font-bold text-center mb-6">Add New Listing</h2>
-          
+  <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-100 to-green-200 py-12 px-4 flex justify-center items-start">
+    <div className="w-full max-w-2xl">
+      <div className="card bg-white/70 backdrop-blur-xl shadow-2xl rounded-3xl border border-green-100">
+        <div className="card-body p-8">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-green-700 mb-2">Add New Listing</h2>
+            <p className="text-base text-gray-600">
+              Share your recyclable materials and contribute to a circular economy ♻️
+            </p>
+          </div>
+
+          {/* Error Alert */}
           {error && (
             <div className="alert alert-error mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
@@ -90,18 +98,17 @@ function AddListingComponent() {
             </div>
           )}
 
+          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Title */}
-            <div className="form-control">
-              <label className="label" htmlFor="title">
-                <span className="label-text font-semibold">Listing Title *</span>
-              </label>
+            <div>
+              <label htmlFor="title" className="block font-semibold text-gray-700 mb-1">Listing Title *</label>
               <input
                 id="title"
                 name="title"
                 type="text"
                 placeholder="e.g., Recycled Plastic Bottles"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full focus:ring-2 focus:ring-green-400"
                 value={formData.title}
                 onChange={handleChange}
                 required
@@ -110,14 +117,12 @@ function AddListingComponent() {
             </div>
 
             {/* Material */}
-            <div className="form-control">
-              <label className="label" htmlFor="material">
-                <span className="label-text font-semibold">Material Type *</span>
-              </label>
+            <div>
+              <label htmlFor="material" className="block font-semibold text-gray-700 mb-1">Material Type *</label>
               <select
                 id="material"
                 name="material"
-                className="select select-bordered w-full"
+                className="select select-bordered w-full focus:ring-2 focus:ring-green-400"
                 value={formData.material}
                 onChange={handleChange}
                 required
@@ -131,15 +136,13 @@ function AddListingComponent() {
             </div>
 
             {/* Description */}
-            <div className="form-control">
-              <label className="label" htmlFor="description">
-                <span className="label-text font-semibold">Description</span>
-              </label>
+            <div>
+              <label htmlFor="description" className="block font-semibold text-gray-700 mb-1">Description</label>
               <textarea
                 id="description"
                 name="description"
                 placeholder="Describe your listing (optional)"
-                className="textarea textarea-bordered w-full"
+                className="textarea textarea-bordered w-full focus:ring-2 focus:ring-green-400"
                 value={formData.description}
                 onChange={handleChange}
                 rows={3}
@@ -147,12 +150,10 @@ function AddListingComponent() {
               />
             </div>
 
-            {/* Quantity and Unit */}
+            {/* Quantity & Unit */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="form-control">
-                <label className="label" htmlFor="quantity">
-                  <span className="label-text font-semibold">Quantity *</span>
-                </label>
+              <div>
+                <label htmlFor="quantity" className="block font-semibold text-gray-700 mb-1">Quantity *</label>
                 <input
                   id="quantity"
                   name="quantity"
@@ -160,7 +161,7 @@ function AddListingComponent() {
                   step="0.01"
                   min="0"
                   placeholder="0.00"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full focus:ring-2 focus:ring-green-400"
                   value={formData.quantity}
                   onChange={handleChange}
                   required
@@ -168,14 +169,12 @@ function AddListingComponent() {
                 />
               </div>
 
-              <div className="form-control">
-                <label className="label" htmlFor="unit">
-                  <span className="label-text font-semibold">Unit</span>
-                </label>
+              <div>
+                <label htmlFor="unit" className="block font-semibold text-gray-700 mb-1">Unit</label>
                 <select
                   id="unit"
                   name="unit"
-                  className="select select-bordered w-full"
+                  className="select select-bordered w-full focus:ring-2 focus:ring-green-400"
                   value={formData.unit}
                   onChange={handleChange}
                   disabled={isLoading}
@@ -187,19 +186,16 @@ function AddListingComponent() {
               </div>
             </div>
 
-            {/* Location (Optional) */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-semibold">Location (Optional)</span>
-                <span className="label-text-alt text-base-content/70">For pickup coordination</span>
-              </label>
+            {/* Location */}
+            <div>
+              <label className="block font-semibold text-gray-700 mb-1">Location (Optional)</label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   name="lat"
                   type="number"
                   step="any"
                   placeholder="Latitude (e.g., 40.7128)"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full focus:ring-2 focus:ring-green-400"
                   value={formData.lat}
                   onChange={handleChange}
                   disabled={isLoading}
@@ -209,7 +205,7 @@ function AddListingComponent() {
                   type="number"
                   step="any"
                   placeholder="Longitude (e.g., -74.0060)"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full focus:ring-2 focus:ring-green-400"
                   value={formData.lng}
                   onChange={handleChange}
                   disabled={isLoading}
@@ -217,18 +213,15 @@ function AddListingComponent() {
               </div>
             </div>
 
-            {/* Photo URL (Optional) */}
-            <div className="form-control">
-              <label className="label" htmlFor="photoUrl">
-                <span className="label-text font-semibold">Photo URL (Optional)</span>
-                <span className="label-text-alt text-base-content/70">Link to image of the material</span>
-              </label>
+            {/* Photo URL */}
+            <div>
+              <label htmlFor="photoUrl" className="block font-semibold text-gray-700 mb-1">Photo URL (Optional)</label>
               <input
                 id="photoUrl"
                 name="photoUrl"
                 type="url"
                 placeholder="https://example.com/photo.jpg"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full focus:ring-2 focus:ring-green-400"
                 value={formData.photoUrl}
                 onChange={handleChange}
                 disabled={isLoading}
@@ -237,43 +230,41 @@ function AddListingComponent() {
 
             {/* Preview */}
             {formData.title && formData.material && formData.quantity && (
-              <div className="alert alert-info">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              <div className="alert bg-green-50 border border-green-200 text-green-700 flex gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div>
-                  <h3 className="font-bold">Preview:</h3>
-                  <p className="text-sm">
-                    <strong>{formData.title}</strong> - {formData.material} · {formData.quantity} {formData.unit}
-                  </p>
+                  <p className="font-semibold">Preview:</p>
+                  <p>{formData.title} — {formData.material} · {formData.quantity} {formData.unit}</p>
                 </div>
               </div>
             )}
 
-            {/* Submit Button */}
-            <div className="form-control mt-6">
-              <button
-                type="submit"
-                className={`btn btn-primary w-full ${isLoading ? 'loading' : ''}`}
-                disabled={isLoading || !formData.title || !formData.material || !formData.quantity}
-              >
-                {isLoading ? 'Creating Listing...' : 'Create Listing'}
-              </button>
-            </div>
+            {/* Submit */}
+            <button
+              type="submit"
+              className={`btn w-full bg-green-600 hover:bg-green-700 text-gray-700 border-none rounded-xl transition-all duration-300 ${
+                isLoading ? 'loading' : ''
+              }`}
+              disabled={isLoading || !formData.title || !formData.material || !formData.quantity}
+            >
+              {isLoading ? 'Creating Listing...' : '✅ Create Listing'}
+            </button>
           </form>
 
           <div className="divider">OR</div>
-          
-          <div className="text-center">
-            <button
-              className="btn btn-outline"
-              onClick={() => navigate({ to: '/listings' })}
-            >
-              Cancel
-            </button>
-          </div>
+
+          {/* Cancel */}
+          <button
+            className="btn btn-outline border-green-600 text-green-700 hover:bg-green-600 hover:text-white w-full rounded-xl transition-all"
+            onClick={() => navigate({ to: '/listings' })}
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>
-  )
+  </div>
+)
 }
