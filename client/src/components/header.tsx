@@ -30,7 +30,10 @@ function Header() {
             <li><Link to="/" className="font-medium text-green-800 hover:text-emerald-600">Home</Link></li>
             <li><Link to="/listings" className="font-medium text-green-800 hover:text-emerald-600">Eco Listings</Link></li>
             {user && (
+              <>
               <li><Link to="/add-listing" className="font-medium text-green-800 hover:text-emerald-600">Add Recycling Point</Link></li>
+              <li><Link to="/aiSummary" className="font-medium text-green-800 hover:text-emerald-600">AI Insight</Link></li>
+              </>
             )}
           </ul>
         </div>

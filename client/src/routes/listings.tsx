@@ -192,7 +192,7 @@ function ListingsPage() {
           {filteredListings.map((listing) => (
             <div
               key={listing._id}
-              className="card bg-white/70 border border-green-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 rounded-2xl overflow-hidden"
+              className="card bg-white/50 border border-green-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 rounded-2xl overflow-hidden"
             >
               {listing.photoUrl ? (
                 <figure>
